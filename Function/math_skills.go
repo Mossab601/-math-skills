@@ -6,7 +6,7 @@ import (
 )
 
 // Average
-func (n *Numbers) Average() int {
+func (n *Numbers) Average() float64 {
 	if len(n.Nums) == 0 {
 		return 0
 	}
@@ -15,7 +15,7 @@ func (n *Numbers) Average() int {
 		sum += num
 	}
 	average := float64(sum) / float64(len(n.Nums))
-	return int(math.Round(average))
+	return average
 }
 
 // Median
@@ -46,7 +46,7 @@ func (n *Numbers) Variance() int {
 	sumOfSquares := 0.0
 
 	for _, num := range n.Nums {
-		diff := (num) - average
+		diff := float64(num) - average
 		sumOfSquares += float64(diff * diff)
 	}
 	variance := sumOfSquares / float64(len(n.Nums))
